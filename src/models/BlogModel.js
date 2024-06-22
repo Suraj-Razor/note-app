@@ -11,6 +11,7 @@
 */
 
 const mongoose = require("mongoose");
+const { commentSchema } = require("./CommentModel");
 
 const blogSchema = mongoose.Schema(
     {
@@ -23,7 +24,8 @@ const blogSchema = mongoose.Schema(
             required: true
         },
         author: {
-            type: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true
         },
         likes: {
@@ -47,6 +49,21 @@ const blogSchema = mongoose.Schema(
         },
         editHistory: {
             type: [{ user: String, timestamp: Date }],
+            required: false
+        },
+        // commentsAsObj: {
+        //     type: [
+        //         {
+        //             userId: {
+        //                 type: mongoose.Schema.Types.ObjectId,
+        //                 ref: "User"
+        //             },
+        //             content: { type: String }
+        //         }
+        //     ]
+        // },
+        comments: {
+            type: [commentSchema],
             required: false
         }
     },
