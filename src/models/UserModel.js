@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
         unqiue: true
     },
     viewHistory: {
-        type: [{ type: mongoose.Schema.Types.ObjectId, ref: Blog }],
+        type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Blog" }],
         required: false,
         unique: false
     }
