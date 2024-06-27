@@ -1,0 +1,17 @@
+meta {
+  name: Find by ID and update
+  type: http
+  seq: 5
+}
+
+patch {
+  url: http://localhost:3000/blogs/findById/66762ec5638ddfeaab7db4f6
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title":"New Updated Title 2nd Update, Woohoo!"
+  }
+}
